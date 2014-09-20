@@ -1,4 +1,6 @@
 #node-webrtc2pngs
+[![view on
+requirebin](http://requirebin.com/badge.png)](http://requirebin.com/?gist=c798fd7138404cb9981b)
 
 WIP
 
@@ -38,5 +40,3 @@ Here's some markup that the lib needs, at some point I can refine this...
 </div>
 ```
 
-[![view on
-requirebin](http://requirebin.com/badge.png)](http://requirebin.com/?gist=c798fd7138404cb9981b)
