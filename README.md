@@ -37,3 +37,6 @@ Here's some markup that the lib needs, at some point I can refine this...
 <span id="upload" class="text">Upload</span>
 </div>
 ```
+
+[![view on
+requirebin](http://requirebin.com/badge.png)](http://requirebin.com/?gist=c798fd7138404cb9981b)
