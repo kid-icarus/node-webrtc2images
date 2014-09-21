@@ -1,11 +1,10 @@
-#node-webrtc2pngs
+#node-webrtc2images
 [![view on
-requirebin](http://requirebin.com/badge.png)](http://requirebin.com/?gist=c798fd7138404cb9981b)
+requirebin](http://requirebin.com/badge.png)](http://requirebin.com/?gist=19dd242b84bf978c870e)
 
 WIP
 
-A small library that uses getUserMedia to convert some video into an array of
-PNGs, and a button to post the array
+A small library that uses getUserMedia to convert some video into an array of base64 encoded images
 
 ##Requirements:
 [browserify](http://browserify.org/)
@@ -15,28 +14,70 @@ PNGs, and a button to post the array
 
 ##Usage
 ```javascript
-var webrtc2pngs = require('node-webrtc2pngs');
-webrtc2pngs({
-  frames: 10,
-  interval: 200,
-  imgQuality: 0.4,
-  postUrl: 'http://localhost:3000'
-});
+var webrtc2images = require('webrtc2images');
+webrtc2images(options, callback(err, frames));
 ```
 
-Then run browserify.
+###options
+Type: `Object`
+
+Options to pass webrtc2pngs
+
+####options.frames:
+Type: `Number`
+Default: `10`
+
+The number of frames to capture.
+
+####options.type:
+Type: `String`
+Default: `image/jpeg`
+
+The mime type of the image you'd like.
+
+###options.quality:
+Type `Number`
+Default: `0.4`
+
+A number between 0 and 1 representing the quality of the image. Note, this only
+works for the `image/jpeg` and `image/webp` filetypes.
+
+####options.interval:
+Type: `Number`
+Default: `200`
+
+The time between still captures (in milliseconds).
+
+###callback(err, frames)
+
+Callback to be called after after images have been captured
+
+##Example
+```javascript
+var webrtc2pngs = require('./index');
+webrtc2pngs({
+  frames: 10,
+  type: 'image/jpeg',
+  quality: 0.4,
+  interval: 200
+}, function(err, frames) {
+  if (err) {
+    console.log(err)
+  } else {
+    // do something with an array of base64 encoded images!
+    console.log(frames)
+  }
+});
+```
 
 Here's some markup that the lib needs, at some point I can refine this...
 
 ```html
 <div class="video-actions" id="record">
-  <span class="recorder"></span>
-  <span class="text">Record</span>
+  <span class="recorder"></span> <span class="text">Record</span>
 </div>
 <div id="video-preview"></div>
-<div class="debugger"></div>
-<div class="video-actions uploader">
-<span id="upload" class="text">Upload</span>
+<div class="debugger">
+  <p id="debug-msg">
 </div>
 ```
-

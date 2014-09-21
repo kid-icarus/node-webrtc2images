@@ -1,6 +1,6 @@
 {
-  "name": "node-webrtc2pngs",
-  "version": "1.0.0",
+  "name": "node-webrtc2images",
+  "version": "1.1.0",
   "description": "A small client side library to convert getUserMedia video into pngs",
   "main": "index.js",
   "scripts": {
@@ -12,13 +12,13 @@
   },
   "keywords": [
     "webrtc",
-    "png",
+    "images",
     "getusermedia"
   ],
   "author": "Ryan Kois",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kid-icarus/node-webrtc2pngs/issues"
+    "url": "https://github.com/kid-icarus/node-webrtc2images/issues"
   },
-  "homepage": "https://github.com/kid-icarus/node-webrtc2pngs"
+  "homepage": "https://github.com/kid-icarus/node-webrtc2images"
 }
