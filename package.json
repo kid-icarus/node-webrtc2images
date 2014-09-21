@@ -1,6 +1,6 @@
 {
   "name": "webrtc2images",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "A small client side library to convert getUserMedia video into pngs",
   "main": "index.js",
   "scripts": {

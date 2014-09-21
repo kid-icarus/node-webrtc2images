@@ -14,8 +14,8 @@ A small library that uses getUserMedia to convert some video into an array of ba
 
 ##Usage
 ```javascript
-var webrtc2images = require('node-webrtc2images');
-webrtc2images(options, function (err, frames) { 
+var Webrtc2images = require('webrtc2images');
+var rtc2images = new Webrtc2images(options, function (err, frames) {
   console.log(frames);
 });
 ```
@@ -54,21 +54,38 @@ The time between still captures (in milliseconds).
 
 Callback to be called after after images have been captured
 
+##API
+
+###Webrtc2images.startVideo
+
+Initiates video streaming
+
+###Webrtc2images.recordVideo
+
+Captures video into an array
+
 ##Example
 ```javascript
-var webrtc2images = require('node-webrtc2images');
-webrtc2images({
+var Webrtc2images = require('webrtc2images');
+var rtc2images = new Webrtc2images({
   frames: 10,
   type: 'image/jpeg',
   quality: 0.4,
   interval: 200
 }, function(err, frames) {
   if (err) {
-    console.log(err);
+    console.log(err)
   } else {
-    // do something with an array of base64 encoded images!
-    console.log(frames);
+    console.log(frames)
   }
+});
+
+rtc2images.startVideo();
+
+var recordBtn = document.getElementById('record');
+recordBtn.addEventListener('click', function (ev) {
+  ev.preventDefault();
+  rtc2images.recordVideo();
 });
 ```
 
