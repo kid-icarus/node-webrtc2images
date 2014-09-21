@@ -14,8 +14,10 @@ A small library that uses getUserMedia to convert some video into an array of ba
 
 ##Usage
 ```javascript
-var webrtc2images = require('webrtc2images');
-webrtc2images(options, function (err, frames) { .. });
+var webrtc2images = require('node-webrtc2images');
+webrtc2images(options, function (err, frames) { 
+  console.log(frames);
+});
 ```
 
 ###options
@@ -62,10 +64,10 @@ webrtc2images({
   interval: 200
 }, function(err, frames) {
   if (err) {
-    console.log(err)
+    console.log(err);
   } else {
     // do something with an array of base64 encoded images!
-    console.log(frames)
+    console.log(frames);
   }
 });
 ```
