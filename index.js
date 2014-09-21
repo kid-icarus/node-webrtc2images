@@ -1,15 +1,13 @@
 var Streamer = require('./lib/streamer');
 var Recorder = require('./lib/recorder');
 
-module.exports = function(config, callback) {
+module.exports = function(config) {
   'use strict';
   var canvas = document.createElement('canvas');
   var streamer = new Streamer();
   var recorder = new Recorder(config);
 
   var preview = document.getElementById('video-preview');
-  var previewEl = document.querySelectorAll('.previews');
-  var record = document.getElementById('record');
 
   this.startVideo = function() {
     streamer.startVideo(function (err, data) {
@@ -25,12 +23,10 @@ module.exports = function(config, callback) {
     });
   };
 
-  this.recordVideo = function() {
-    previewEl.innerHTML = '';
+  this.recordVideo = function(callback) {
     recorder.video = streamer.video;
     recorder.getScreenshot(function () {
       callback(null, recorder.videoFrames);
-      record.classList.remove('on');
     });
-  }
-}
+  };
+};
