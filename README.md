@@ -10,18 +10,18 @@ A small library that uses getUserMedia to convert some video into an array of ba
 [browserify](http://browserify.org/)
 
 ##Installation:
-`npm install node-webrtc2pngs`
+`npm install node-webrtc2images`
 
 ##Usage
 ```javascript
 var webrtc2images = require('webrtc2images');
-webrtc2images(options, callback(err, frames));
+webrtc2images(options, function (err, frames) { .. });
 ```
 
 ###options
 Type: `Object`
 
-Options to pass webrtc2pngs
+Options to pass webrtc2images
 
 ####options.frames:
 Type: `Number`
@@ -35,7 +35,7 @@ Default: `image/jpeg`
 
 The mime type of the image you'd like.
 
-###options.quality:
+####options.quality:
 Type `Number`
 Default: `0.4`
 
@@ -48,14 +48,14 @@ Default: `200`
 
 The time between still captures (in milliseconds).
 
-###callback(err, frames)
+###function (err, frames) { .. }
 
 Callback to be called after after images have been captured
 
 ##Example
 ```javascript
-var webrtc2pngs = require('./index');
-webrtc2pngs({
+var webrtc2images = require('node-webrtc2images');
+webrtc2images({
   frames: 10,
   type: 'image/jpeg',
   quality: 0.4,
