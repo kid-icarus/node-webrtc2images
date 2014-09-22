@@ -29,6 +29,18 @@ Default: `180`
 
 The height of the video stream.
 
+####options.width:
+Type: `Number`
+Default: `320`
+
+The width of the video stream.
+
+####options.height:
+Type: `Number`
+Default: `180`
+
+The height of the video stream.
+
 ####options.frames:
 Type: `Number`
 Default: `10`
