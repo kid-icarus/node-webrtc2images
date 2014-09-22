@@ -29,18 +29,6 @@ Default: `180`
 
 The height of the video stream.
 
-####options.width:
-Type: `Number`
-Default: `320`
-
-The width of the video stream.
-
-####options.height:
-Type: `Number`
-Default: `180`
-
-The height of the video stream.
-
 ####options.frames:
 Type: `Number`
 Default: `10`
@@ -66,17 +54,13 @@ Default: `200`
 
 The time between still captures (in milliseconds).
 
-###function (err, frames) { .. }
-
-Callback to be called after after images have been captured
-
 ##API
 
-###Webrtc2images.startVideo
+###Webrtc2images.startVideo(function (err) { .. })
 
 Initiates video streaming
 
-###Webrtc2images.recordVideo
+###Webrtc2images.recordVideo(function (err, frames) { .. })
 
 Captures video into an array
 
@@ -90,12 +74,6 @@ var rtc2images = new Webrtc2images({
   type: 'image/jpeg',
   quality: 0.4,
   interval: 200
-}, function(err, frames) {
-  if (err) {
-    console.log(err)
-  } else {
-    console.log(frames)
-  }
 });
 
 rtc2images.startVideo(function (err) {
