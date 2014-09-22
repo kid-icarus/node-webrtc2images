@@ -10,15 +10,7 @@ A small library that uses getUserMedia to convert some video into an array of ba
 [browserify](http://browserify.org/)
 
 ##Installation:
-`npm install node-webrtc2images`
-
-##Usage
-```javascript
-var Webrtc2images = require('webrtc2images');
-var rtc2images = new Webrtc2images(options, function (err, frames) {
-  console.log(frames);
-});
-```
+`npm install webrtc2images`
 
 ###options
 Type: `Object`
@@ -85,7 +77,13 @@ rtc2images.startVideo();
 var recordBtn = document.getElementById('record');
 recordBtn.addEventListener('click', function (ev) {
   ev.preventDefault();
-  rtc2images.recordVideo();
+  rtc2images.recordVideo(function (err, frames) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(frames);
+    }
+  });
 });
 ```
 
