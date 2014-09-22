@@ -98,7 +98,11 @@ var rtc2images = new Webrtc2images({
   }
 });
 
-rtc2images.startVideo();
+rtc2images.startVideo(function (err) {
+  if (err) {
+    console.log(err);
+  }
+});
 
 var recordBtn = document.getElementById('record');
 recordBtn.addEventListener('click', function (ev) {
