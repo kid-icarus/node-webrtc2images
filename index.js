@@ -4,12 +4,12 @@ var Recorder = require('./lib/recorder');
 module.exports = function(config) {
   'use strict';
   var canvas = document.createElement('canvas');
-  var streamer = new Streamer();
+  var streamer = new Streamer(config);
   var recorder = new Recorder(config);
 
   var preview = document.getElementById('video-preview');
 
-  this.startVideo = function() {
+  this.startVideo = function (callback) {
     streamer.startVideo(function (err, data) {
       if (err) {
         callback(err);

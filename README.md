@@ -15,7 +15,19 @@ A small library that uses getUserMedia to convert some video into an array of ba
 ###options
 Type: `Object`
 
-Options to pass webrtc2images
+Options to pass webrtc2images.
+
+####options.width:
+Type: `Number`
+Default: `320`
+
+The width of the video stream.
+
+####options.height:
+Type: `Number`
+Default: `180`
+
+The height of the video stream.
 
 ####options.frames:
 Type: `Number`
@@ -60,6 +72,8 @@ Captures video into an array
 ```javascript
 var Webrtc2images = require('webrtc2images');
 var rtc2images = new Webrtc2images({
+  width: 320,
+  height: 180,
   frames: 10,
   type: 'image/jpeg',
   quality: 0.4,

@@ -1,6 +1,6 @@
 {
   "name": "webrtc2images",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "A small client side library to convert getUserMedia video into pngs",
   "main": "index.js",
   "scripts": {
@@ -20,5 +20,14 @@
   "bugs": {
     "url": "https://github.com/kid-icarus/node-webrtc2images/issues"
   },
-  "homepage": "https://github.com/kid-icarus/node-webrtc2images"
+  "homepage": "https://github.com/kid-icarus/node-webrtc2images",
+  "dependencies": {
+    "lodash.defaults": "^2.4.1"
+  },
+  "jshintConfig": {
+    "browser": true,
+    "devel": true,
+    "maxcomplexity": 4,
+    "maxlen": 80
+  }
 }
