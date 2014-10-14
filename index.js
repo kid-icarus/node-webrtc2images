@@ -19,6 +19,7 @@ module.exports = function(config) {
         streamer.video.height = data.videoElement.height;
         preview.appendChild(streamer.video);
         streamer.video.play();
+        callback();
       }
     });
   };
