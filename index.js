@@ -1,9 +1,9 @@
 var Streamer = require('./lib/streamer');
 var Recorder = require('./lib/recorder');
 
-module.exports = function(config) {
+module.exports = function (config) {
   'use strict';
-  var canvas = document.createElement('canvas');
+  document.createElement('canvas');
   var streamer = new Streamer(config);
   var recorder = new Recorder(config);
 
@@ -24,10 +24,17 @@ module.exports = function(config) {
     });
   };
 
-  this.recordVideo = function(callback) {
+  this.recordVideo = function (callback) {
     recorder.video = streamer.video;
     recorder.getScreenshot(function () {
       callback(null, recorder.videoFrames);
     });
+  };
+  
+  this.changeCamera = function (callback) {
+    preview.innerHTML = '';
+    streamer.stopVideo();
+    recorder.video = null;
+    this.startVideo(callback);
   };
 };
