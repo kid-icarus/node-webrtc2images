@@ -30,7 +30,7 @@ module.exports = function (config) {
       callback(null, recorder.videoFrames);
     });
   };
-  
+
   this.changeCamera = function (callback) {
     preview.innerHTML = '';
     streamer.stopVideo();
