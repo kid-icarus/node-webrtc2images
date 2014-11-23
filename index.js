@@ -12,15 +12,14 @@ module.exports = function (config) {
   this.startVideo = function (callback) {
     streamer.startVideo(function (err, data) {
       if (err) {
-        callback(err);
-      } else {
-        streamer.video = data.videoElement;
-        streamer.video.width = data.videoElement.width;
-        streamer.video.height = data.videoElement.height;
-        preview.appendChild(streamer.video);
-        streamer.video.play();
-        callback();
+        return callback(err);
       }
+      streamer.video = data.videoElement;
+      streamer.video.width = data.videoElement.width;
+      streamer.video.height = data.videoElement.height;
+      preview.appendChild(streamer.video);
+      streamer.video.play();
+      callback();
     });
   };
 
